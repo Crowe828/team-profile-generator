@@ -19,23 +19,6 @@ The dependencies are Jest for running the provided tests, and Inquirer for colle
 3. Repeat
 
 Remember: you can run the tests at any time with `npm run test`
-It is recommended that you start with a directory structure that looks like this:
-
-```
-lib/           // classes and helper code
-output/        // rendered output
-templates/     // HTML templates
-  employee.html
-  engineer.html
-  intern.html
-  manager.html
-test/          // jest tests
-  Employee.test.js
-  Engineer.test.js
-  Intern.test.js
-  Manager.test.js
-app.js         // Runs the application
-```
 
 ### Hints
 
@@ -50,18 +33,6 @@ app.js         // Runs the application
 ### Classes
 
 The project must have the these classes: `Employee`, `Manager`, `Engineer`, `Intern`. The tests for these classes in the `tests` directory must all pass.
-
-`Engineer` will also have:
-
-- github // GitHub username
-- getGithub()
-- getRole() // Overridden to return 'Engineer'
-
-`Intern` will also have:
-
-- school
-- getSchool()
-- getRole() // Overridden to return 'Intern'
 
 ### Roster output
 
