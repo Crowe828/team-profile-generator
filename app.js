@@ -21,48 +21,144 @@ function mainMenu() {
         {
           type: "input",
           name: "managerName",
-          message: "What is your managers name?",
+          message: "What is your manager's name?",
           validate: (answer) => {
             if (answer !== "") {
               return true;
             }
-            return "Please enter a name";
+            return "Please enter your manager's name";
             // if id includes
           },
         },
         {
           type: "input",
           name: "managerId",
-          message: "What is your managers ID number?",
+          message: "What is your manager's ID number?",
           validate: (answer) => {
             if (answer !== "") {
               return true;
             }
-            return "Please enter an ID number";
+            return "Please enter your manager's ID number";
             // if id includes
           },
         },
         {
           type: "input",
           name: "managerEmail",
-          message: "What is your managers email?",
+          message: "What is your manager's email address?",
           validate: (answer) => {
             if (answer !== "") {
               return true;
             }
-            return "Please enter an email";
+            return "Please enter your manager's address";
             // if id includes
           },
         },
         {
           type: "input",
           name: "officeNumber",
-          message: "What is your managers office number?",
+          message: "What is your manager's office number?",
           validate: (answer) => {
             if (answer !== "") {
               return true;
             }
-            return "Please enter an office number";
+            return "Please enter your manager's office number";
+            // if id includes
+          },
+        },
+        {
+          type: "input",
+          name: "engineerName",
+          message: "What is your engineer's name?",
+          validate: (answer) => {
+            if (answer !== "") {
+              return true;
+            }
+            return "Please your engineer's name";
+            // if id includes
+          },
+        },
+        {
+          type: "input",
+          name: "engineerId",
+          message: "What is your engineer's ID number?",
+          validate: (answer) => {
+            if (answer !== "") {
+              return true;
+            }
+            return "Please your engineer's ID number";
+            // if id includes
+          },
+        },
+        {
+          type: "input",
+          name: "engineerEmail",
+          message: "What is your engineer's email address?",
+          validate: (answer) => {
+            if (answer !== "") {
+              return true;
+            }
+            return "Please your engineer's email address";
+            // if id includes
+          },
+        },
+        {
+          type: "input",
+          name: "github",
+          message: "What is your engineer's github username?",
+          validate: (answer) => {
+            if (answer !== "") {
+              return true;
+            }
+            return "Please your engineer's github username";
+            // if id includes
+          },
+        },
+        {
+          type: "input",
+          name: "internName",
+          message: "What is your intern's name?",
+          validate: (answer) => {
+            if (answer !== "") {
+              return true;
+            }
+            return "Please your intern's name";
+            // if id includes
+          },
+        },
+        {
+          type: "input",
+          name: "internId",
+          message: "What is your intern's ID number?",
+          validate: (answer) => {
+            if (answer !== "") {
+              return true;
+            }
+            return "Please your intern's ID number";
+            // if id includes
+          },
+        },
+        {
+          type: "input",
+          name: "internEmail",
+          message: "What is your intern's email address?",
+          validate: (answer) => {
+            if (answer !== "") {
+              return true;
+            }
+            return "Please your intern's email address";
+            // if id includes
+          },
+        },
+        {
+          type: "input",
+          name: "school",
+          message: "What university did your intern attend?",
+          validate: (answer) => {
+            if (answer !== "") {
+              return true;
+            }
+            return "Please your intern's school";
             // if id includes
           },
         },
