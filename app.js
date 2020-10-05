@@ -30,6 +30,42 @@ function mainMenu() {
             // if id includes
           },
         },
+        {
+          type: "input",
+          name: "managerId",
+          message: "What is your managers ID number?",
+          validate: (answer) => {
+            if (answer !== "") {
+              return true;
+            }
+            return "Please enter an ID number";
+            // if id includes
+          },
+        },
+        {
+          type: "input",
+          name: "managerEmail",
+          message: "What is your managers email?",
+          validate: (answer) => {
+            if (answer !== "") {
+              return true;
+            }
+            return "Please enter an email";
+            // if id includes
+          },
+        },
+        {
+          type: "input",
+          name: "officeNumber",
+          message: "What is your managers office number?",
+          validate: (answer) => {
+            if (answer !== "") {
+              return true;
+            }
+            return "Please enter an office number";
+            // if id includes
+          },
+        },
       ])
       .then((answer) => {
         const manager = new Manager(answers.id);
