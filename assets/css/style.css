@@ -1,0 +1,26 @@
+/* Calm yellow color background and font from Google Fonts */
+body {
+  background-color: #f0dbb0;
+  font-family: "Tomorrow", sans-serif;
+}
+
+/* Make the text lighter and change the background to blue */
+.team-heading {
+  color: rgb(224, 224, 228);
+  background-color: #4f6a8f;
+}
+
+/* Give the boxes some shadow so they stand out and some margins so they don't touch */
+.employee-card {
+  margin: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+/* Each card's heading is a little lighter than the Jumbotron */
+.card-header {
+  background-color: #88a2bc;
+}
+
+/* Background of the list-group-items are a little darker for readability */
+.list-group-item {
+  background-color: rgb(244, 244, 248);
+}
