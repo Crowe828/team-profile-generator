@@ -53,11 +53,13 @@ function mainMenu() {
           type: "input",
           name: "managerEmail",
           message: "What is your manager's email address?",
+          // Make sure the user enters a valid email address
           validate: (answers) => {
-            if (answers !== "") {
+            const pass = answers.match(/\S+@\S+\.\S+/);
+            if (pass) {
               return true;
             }
-            return "Please enter your manager's address";
+            return "Please enter a valid email address";
           },
         },
         // Manager Office Number
@@ -122,11 +124,13 @@ function mainMenu() {
           type: "input",
           name: "engineerEmail",
           message: "What is your engineer's email address?",
+          // Make sure the user enters a valid email address
           validate: (answers) => {
-            if (answers !== "") {
+            const pass = answers.match(/\S+@\S+\.\S+/);
+            if (pass) {
               return true;
             }
-            return "Please your engineer's email address";
+            return "Please enter a valid email address";
           },
         },
         // Engineer GitHub
@@ -189,11 +193,13 @@ function mainMenu() {
           type: "input",
           name: "internEmail",
           message: "What is your intern's email address?",
+          // Make sure the user enters a valid email address
           validate: (answers) => {
-            if (answers !== "") {
+            const pass = answers.match(/\S+@\S+\.\S+/);
+            if (pass) {
               return true;
             }
-            return "Please your intern's email address";
+            return "Please enter a valid email address";
           },
         },
         // Intern School
