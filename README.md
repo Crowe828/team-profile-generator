@@ -19,6 +19,7 @@ This is a Node CLI that takes in information about employees and generates an HT
 ## Images
 
 - How it works in the Terminal:
+
   ![Generator GIF](https://github.com/Crowe828/team-profile-generator/blob/main/assets/images/generator.gif)
 
 - The final output:
