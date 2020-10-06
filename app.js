@@ -1,3 +1,4 @@
+// Require all necessary files
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
@@ -5,19 +6,24 @@ const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 
+// Targets the output folder
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
+// Renders the uer's answers into HTML
 const render = require("./lib/htmlRenderer");
 
+// Where the employee objects will be stored
 const teamMembers = [];
-const idArray = [];
 
+// Entire interface
 function mainMenu() {
+  // Start by creating the manager
   function createManager() {
     console.log("Please build your team");
     inquirer
       .prompt([
+        // Manager Name
         {
           type: "input",
           name: "managerName",
@@ -26,9 +32,11 @@ function mainMenu() {
             if (answers !== "") {
               return true;
             }
+            // So that you must enter something
             return "Please enter your manager's name";
           },
         },
+        // Manager ID
         {
           type: "input",
           name: "managerId",
@@ -40,6 +48,7 @@ function mainMenu() {
             return "Please enter your manager's ID number";
           },
         },
+        // Manager Email
         {
           type: "input",
           name: "managerEmail",
@@ -51,6 +60,7 @@ function mainMenu() {
             return "Please enter your manager's address";
           },
         },
+        // Manager Office Number
         {
           type: "input",
           name: "officeNumber",
@@ -63,6 +73,7 @@ function mainMenu() {
           },
         },
       ])
+      // After all questions have been answered, create a new object with them
       .then((answers) => {
         const manager = new Manager(
           answers.managerName,
@@ -70,15 +81,18 @@ function mainMenu() {
           answers.managerEmail,
           answers.officeNumber
         );
+        // Push the new object to the empty array
         teamMembers.push(manager);
-        idArray.push(answers.managerId);
         moreEmployees();
       });
   }
+  // So that we always create the manager first
   createManager();
 
+  // Coode to create Engineer
   function createEngineer() {
     inquirer
+      // Engineer Name
       .prompt([
         {
           type: "input",
@@ -91,6 +105,7 @@ function mainMenu() {
             return "Please your engineer's name";
           },
         },
+        // Engineer ID
         {
           type: "input",
           name: "engineerId",
@@ -102,6 +117,7 @@ function mainMenu() {
             return "Please your engineer's ID number";
           },
         },
+        // Engineer Email
         {
           type: "input",
           name: "engineerEmail",
@@ -113,6 +129,7 @@ function mainMenu() {
             return "Please your engineer's email address";
           },
         },
+        // Engineer GitHub
         {
           type: "input",
           name: "engineerGit",
@@ -125,6 +142,7 @@ function mainMenu() {
           },
         },
       ])
+      // Create a new object with the user's input
       .then((answers) => {
         const engineer = new Engineer(
           answers.engineerName,
@@ -132,14 +150,16 @@ function mainMenu() {
           answers.engineerEmail,
           answers.engineerGit
         );
+        // Push it to the array
         teamMembers.push(engineer);
-        idArray.push(answers.engineerId);
         moreEmployees();
       });
   }
 
+  // Code to create Intern
   function createIntern() {
     inquirer
+      // Intern Name
       .prompt([
         {
           type: "input",
@@ -152,6 +172,7 @@ function mainMenu() {
             return "Please your intern's name";
           },
         },
+        // Intern ID
         {
           type: "input",
           name: "internId",
@@ -163,6 +184,7 @@ function mainMenu() {
             return "Please your intern's ID number";
           },
         },
+        // Intern Email
         {
           type: "input",
           name: "internEmail",
@@ -174,6 +196,7 @@ function mainMenu() {
             return "Please your intern's email address";
           },
         },
+        // Intern School
         {
           type: "input",
           name: "internSchool",
@@ -186,21 +209,25 @@ function mainMenu() {
           },
         },
       ])
+      // Create an object
       .then((answers) => {
         const intern = new Intern(
           answers.internName,
-          answers.internEmail,
           answers.internId,
+          answers.internEmail,
           answers.internSchool
         );
+        // Push it to the array
         teamMembers.push(intern);
-        idArray.push(answers.internId);
         moreEmployees();
       });
   }
 
+  // After the user creates a manager
+  // This can be repeated indefinitely
   function moreEmployees() {
     inquirer
+      // Ask the user if they want to create another employee
       .prompt([
         {
           type: "list",
@@ -209,21 +236,21 @@ function mainMenu() {
           choices: ["Engineer", "Intern", "Nope, my team is complete!"],
         },
       ])
+      // If the user selects
       .then((answers) => {
+        // Will begin the prompt for engineer
         if (answers.nextEmployee === "Engineer") {
           createEngineer();
         }
+        // Will begin the prompt for intern
         if (answers.nextEmployee === "Intern") {
           createIntern();
         }
         // If the user selects they are done adding employees, the prompt is over
         if (answers.nextEmployee === "Nope, my team is complete!") {
           console.log("All set!");
-          console.log(idArray);
           console.log(teamMembers);
-          // Make sure render function is working
-          console.log(render(teamMembers));
-          
+
           // Write the HTML to the files
           fs.writeFile(outputPath, render(teamMembers), function (err) {
             if (err) {
@@ -234,8 +261,5 @@ function mainMenu() {
       });
   }
 }
+// Displays first
 mainMenu();
-
-// After you have your html, you're now ready to create an HTML file using the HTML returned from the `render` function. Now write it to a file named `team.html` in the `output` folder. You can use the variable `outputPath` above target this location. You may need to check if the `output` folder exists and create it if it does not
-
-// Be sure to test out each class and verify it generates an object with the correct structure and methods. This structure will be crucial in order for the provided `render` function to work.
